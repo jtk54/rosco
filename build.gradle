@@ -16,6 +16,7 @@ buildscript {
 
 allprojects {
   apply plugin: "spinnaker.project"
+  apply plugin: "nebula.ospackage"
   apply plugin: "groovy"
 
   group = "com.netflix.spinnaker.rosco"
@@ -66,6 +67,10 @@ allprojects {
       exceptionFormat = 'full'
     }
   }
+}
+
+buildDeb {
+  requires('unzip')
 }
 
 defaultTasks ':rosco-web:bootRun'
